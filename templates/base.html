@@ -1,18 +1,17 @@
 <!doctype html>
 <html>
 <head>
-    <title>{% block title %}{% endblock %} - Flaskr</title>
+    <title>{% block title %}{% endblock %} - Really Bad Websites</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 <nav>
-    <h1>BAD-WEBSITES</h1>
     <ul>
         {% if session['username'] %}
-            <li><span>Hello, {{ session['username'] }}</span>
-            <li><a href="{{ url_for('logout') }}">Log Out</a>
+            <li><span class="hello">Hello, {{ session['username'] }}</span>
+            <li><a href="{{ url_for('logout') }}">Logout</a>
                 {% else %}
-            <li><a href="{{ url_for('login_get') }}">Log In</a>
+            <li><a href="{{ url_for('login_get') }}">Login</a>
         {% endif %}
         <li><a href="{{ url_for('vote_get') }}">Vote</a></li>
         <li><a href="{{ url_for('wall_get') }}">Wall</a></li>

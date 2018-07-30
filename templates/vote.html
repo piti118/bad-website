@@ -1,19 +1,23 @@
 {% extends 'base.html' %}
 
 {% block header %}
-    <h1>{% block title %}Vote Results{% endblock %}</h1>
+    <h1>{% block title %}Vote{% endblock %}</h1>
 {% endblock %}
 
 {% block content %}
-    <form action="{{ url_for('vote_post') }}" , method="POST">
-        <ul>
-            {% for name, count in vr %}
-                <li>
-                    <input type="radio" name="name" value="{{ name }}">
-                    {{ name }} -- Currently {{ count }} Votes
-                </li>
-            {% endfor %}
-        </ul>
-        <input type="submit" value="Vote"/>
-    </form>
+    <div class="center">
+        <div class="vote-form">
+            <form action="{{ url_for('vote_post') }}" , method="POST">
+                <ul>
+                    {% for name, count in vr %}
+                        <li>
+                            <input type="radio" name="name" value="{{ name }}">
+                            {{ name }} -- Currently {{ count }} Votes
+                        </li>
+                    {% endfor %}
+                </ul>
+                <div class="center"><input type="submit" value="Vote"/></div>
+            </form>
+        </div>
+    </div>
 {% endblock %}

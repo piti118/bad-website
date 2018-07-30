@@ -75,6 +75,12 @@ def wall_post():
     return redirect(url_for('wall_get'))
 
 
+@app.route('/reset-wall', methods=["GET"])
+def reset_wall():
+    execute('DELETE from wall')
+    return redirect(url_for('wall_get'))
+
+
 ### Utilities
 
 #this is a terrible idea for excuting sql statements

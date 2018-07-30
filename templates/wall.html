@@ -5,11 +5,13 @@
 {% endblock %}
 
 {% block content %}
-    <div class="wallform">
-        <form action="{{ url_for('wall_post') }}" method="post">
-            <textarea rows="3" name="msg"></textarea>
-            <input type="submit" value="POST"/>
-        </form>
+    <div class="center">
+        <div class="wallform">
+            <form action="{{ url_for('wall_post') }}" method="post">
+                <div><textarea rows="3" cols="60" name="msg"></textarea></div>
+                <div class="center"><input type="submit" value="POST"/></div>
+            </form>
+        </div>
     </div>
     <div class="messages">
         {# XSS HERE #}
