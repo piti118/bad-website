@@ -24,6 +24,7 @@ def login_post():
     # THIS IS A SUPER BAD IDEA
     # INJECT COMMAND in password " or ""="
     # OR EVEN password x"; UPDATE votes SET vote=9999 WHERE name="Pepsi";SELECT "
+    # OR EVEN password x"; INSERT INTO votes (name, vote) VALUES ("Est", 0); SELECT "
     query = 'SELECT * from users where username="' + username + '" AND password = "' + password + '"'
     result = execute(query)
     if len(result) > 0:  # good?? not really..
