@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1>{% block title %}Wall{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="wallform">
+        <form action="{{ url_for('wall_post') }}" method="post">
+            <textarea rows="3" name="msg"></textarea>
+            <input type="submit" value="POST"/>
+        </form>
+    </div>
+    <div class="messages">
+        {# XSS HERE #}
+        {% for (m,) in msg %}
+            <div>{{ m | safe }}</div>
+        {% endfor %}
+    </div>
+{% endblock %}s

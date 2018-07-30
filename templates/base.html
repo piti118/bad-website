@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %} - Flaskr</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<nav>
+    <h1>BAD-WEBSITES</h1>
+    <ul>
+        {% if session['username'] %}
+            <li><span>Hello, {{ session['username'] }}</span>
+            <li><a href="{{ url_for('logout') }}">Log Out</a>
+                {% else %}
+            <li><a href="{{ url_for('login_get') }}">Log In</a>
+        {% endif %}
+        <li><a href="{{ url_for('vote_get') }}">Vote</a></li>
+        <li><a href="{{ url_for('wall_get') }}">Wall</a></li>
+    </ul>
+</nav>
+<section class="content">
+    {% if flash is defined %}
+        <div class="flash">
+            {{ flash }}
+        </div>
+    {% endif %}
+    <header>
+        {% block header %}{% endblock %}
+    </header>
+    {% block content %}{% endblock %}
+</section>
+</body>
+</html>
