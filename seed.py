@@ -40,6 +40,9 @@ with sqlite3.connect('badwebsites.db') as conn:
       ('Coke')
     ''')
 
+    c.execute('''
+      DROP TABLE IF EXISTS wall;
+    ''')
 
     c.execute('''
       CREATE TABLE wall (
